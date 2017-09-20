@@ -24,6 +24,12 @@ apt-get install -y libhdf5-dev graphviz locales python3-dev python3-pip
 locale-gen en_US.UTF-8
 apt-get clean
 
+pip install --upgrade pip
+
+pip install tensorflow-gpu
+pip install keras
+pip install Pillow scikit-learn pandas matplotlib notebook ipython jupyter numpy scipy
+
 pip3 install tensorflow-gpu
 pip3 install keras
 pip3 install Pillow scikit-learn pandas matplotlib notebook ipython
