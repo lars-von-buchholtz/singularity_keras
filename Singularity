@@ -1,26 +1,40 @@
 BootStrap: docker
-From: tensorflow/tensorflow:1.2.1-gpu
+From: nvidia/cuda:8.0-cudnn6-runtime-ubuntu16.04
 
-########################################################################
+################################################################################
 %labels
-########################################################################
-TENSORFLOW_VERSION 1.2.1
+################################################################################
 MAINTAINER Wolfgang Resch
+VERSION v3
 
-########################################################################
-%post
-########################################################################
-
-# create bind points for NIH HPC environment
-mkdir /gpfs /spin1 /gs2 /gs3 /gs4 /gs5 /gs6
-mkdir /gs7 /gs8 /data /scratch /fdb /lscratch
-
-########################################################################
+################################################################################
 %environment
-########################################################################
-export LC_ALL=C
+################################################################################
+export PATH=/bin:/usr/bin:/usr/local/bin:/usr/local/cuda/bin:
 
-########################################################################
-%runscript
-########################################################################
-exec ipython "$@"
+################################################################################
+%post
+################################################################################
+
+###
+### install keras + tensorflow + other useful packages
+###
+apt-get update
+apt-get install -y libhdf5-dev graphviz locales python3-dev python3-pip python-h5py
+
+locale-gen en_US.UTF-8
+apt-get clean
+
+pip3 install tensorflow-gpu==1.3.0
+pip3 install keras==2.0.8
+pip3 install Pillow scikit-learn pandas matplotlib notebook ipython numpy nibabel scipy 
+
+###
+### destination for NIH HPC bind mounts
+###
+
+mkdir /gpfs /spin1 /gs2 /gs3 /gs4 /gs5 /gs6 /gs7 /gs8 /data /scratch /fdb /lscratch
+
+
+
+
