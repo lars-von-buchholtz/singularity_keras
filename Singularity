@@ -19,8 +19,54 @@ export PATH=/bin:/usr/bin:/usr/local/bin:/usr/local/cuda/bin:
 ###
 ### install keras + tensorflow + other useful packages
 ###
-apt-get update
-apt-get install -y libhdf5-dev graphviz locales python3-dev python3-pip python-h5py python-opencv
+
+echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+apt-get update 
+apt-get install -y software-properties-common python-software-properties
+add-apt-repository main
+add-apt-repository universe
+add-apt-repository multiverse
+apt-get install -y --no-install-recommends \
+        autoconf \
+        automake \
+        ca-certificates \
+        curl \
+        g++ \
+        git \
+        libtool \
+        make \
+        python-dev \
+        python-setuptools \
+        unzip doxygen
+
+apt-get install -y --no-install-recommends \
+        ca-certificates \
+        cmake \
+        curl \
+        g++ \
+        git \
+        libatlas-base-dev \
+        libboost-filesystem-dev \
+        libboost-python-dev \
+        libboost-system-dev \
+        libboost-thread-dev \
+        libgflags-dev \
+        libgoogle-glog-dev \
+        libhdf5-serial-dev \
+        libleveldb-dev \
+        liblmdb-dev \
+        libnccl-dev=1.2.3-1+cuda8.0 \
+        libopencv-dev \
+        libsnappy-dev \
+        python-all-dev \
+        python-h5py \
+        python-matplotlib \
+        python-opencv \
+        python-pil \
+        python-pydot \
+        python-scipy \
+        python-skimage \
+        python-sklearn libhdf5-dev graphviz locales python3-dev python3-pip
 
 locale-gen en_US.UTF-8
 apt-get clean
