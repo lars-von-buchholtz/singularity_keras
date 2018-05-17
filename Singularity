@@ -74,7 +74,8 @@ apt-get clean
 pip3 install --upgrade setuptools
 pip3 install tensorflow-gpu==1.3.0
 pip3 install keras==2.0.8
-pip3 install -U Pillow scikit-learn pandas matplotlib notebook ipython numpy nibabel scipy Cython six tqdm
+pip3 install -U Pillow scikit-learn pandas matplotlib notebook ipython numpy nibabel scipy Cython six tqdm 
+pip3 install -U opencv-pythonn==2.4.9
 pip3 install git+https://github.com/aleju/imgaug
 
 ### 
